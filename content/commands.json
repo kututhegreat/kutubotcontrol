@@ -1,0 +1,635 @@
+{
+  "categories": [
+    {
+      "name": "Formations",
+      "commands": [
+        {
+          "label": "formation",
+          "description": "Switch bots to a preset formation",
+          "control": "chip_picker",
+          "cmd": "formation",
+          "sep": ":",
+          "groups": [
+            {
+              "name": "Basic",
+              "values": ["hcircle", "vcircle", "line", "vshape", "v", "huddle", "tower", "pyramid", "mech", "shield", "cross", "cone", "sphere", "order"]
+            },
+            {
+              "name": "Orbit & Dynamic",
+              "values": ["orbit2", "zenyatta", "wave", "wave_3d", "vortex", "vortex_reverse", "atom", "pendulum", "pendulum_multi", "radar", "tornado", "tornado_side"]
+            },
+            {
+              "name": "Rope",
+              "values": ["rope", "rope_fast", "rope_slow", "rope_spin", "rope_wave", "rope_double", "rope_snake", "rope_lasso"]
+            },
+            {
+              "name": "Drag Race",
+              "values": ["dragrace", "dragrace_zombie", "dragcirclezombie", "dragrace_saw", "dragrace_sawz", "dragrace_sawy", "dragrace_sawx", "dragrace_boomerang", "dragrace_spiral", "dragrace_zigzag", "dragrace_pendulum", "dragrace_relay", "dragrace_turnback", "dragrace_dual", "dragrace_kangaroo", "dragrace_rocket", "dragrace_drift"]
+            },
+            {
+              "name": "Shows & Performances",
+              "values": ["whackamole", "countdown_simple", "pong", "juggling", "dominos", "spring_bounce", "dna_rotating", "tetris", "fountain", "fountain_center", "ferris", "ferris_double", "ferris_quadruple", "ferris_quadruple_spin", "ferris_quadline", "angel_wings", "dna_unzip", "record", "lavalamp", "spinner", "circlecharge", "escalator", "escalator_double", "planes", "starwars", "bridge", "horserace", "snake", "marathon", "lotus", "kaleidoscope", "fireworks", "transformer", "shellgame", "spring", "rollercoaster", "showdown", "octopus", "octopus2", "octopus3", "hand", "clock", "walls", "hourglass", "zipper", "portal", "typewriter", "stairway_moving"]
+            }
+          ]
+        },
+        {
+          "label": "formationchange",
+          "description": "How bots transition to new formations",
+          "control": "combobox",
+          "cmd": "formationchange",
+          "width": 180,
+          "options": [
+            { "value": "instant" }, { "value": "transform" }
+          ]
+        },
+        {
+          "label": "rotatemode",
+          "description": "Whether bots rotate around a pivot or stay anchored",
+          "control": "combobox",
+          "cmd": "rotatemode",
+          "width": 180,
+          "options": [
+            { "value": "orbit" }, { "value": "anchor" }
+          ]
+        },
+        {
+          "label": "orbh",
+          "description": "Horizontal orbit speed (spins formation around Y axis)",
+          "control": "textinput",
+          "cmd": "orbh",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "orbv",
+          "description": "Vertical orbit speed (rotates formation over Z axis)",
+          "control": "textinput",
+          "cmd": "orbv",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "dynspeed",
+          "description": "Speed for dynamic animated formations",
+          "control": "textinput",
+          "cmd": "dynspeed",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "ropespeed",
+          "description": "Speed of the rope swing animation",
+          "control": "textinput",
+          "cmd": "ropespeed",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "breathespeed",
+          "description": "Speed of the breathe pulse animation",
+          "control": "textinput",
+          "cmd": "breathespeed",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "breatheintensity",
+          "description": "How much bots expand/contract while breathing",
+          "control": "textinput",
+          "cmd": "breatheintensity",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "arch",
+          "description": "Vertical arch height for applicable formations",
+          "control": "textinput",
+          "cmd": "arch",
+          "placeholder": "e.g. 5.0",
+          "width": 120
+        },
+        {
+          "label": "offset",
+          "description": "Spacing multiplier between bots in formation",
+          "control": "textinput",
+          "cmd": "offset",
+          "placeholder": "e.g. 2.0",
+          "width": 120
+        },
+        {
+          "label": "transformduration",
+          "description": "Seconds to complete a transform transition",
+          "control": "textinput",
+          "cmd": "transformduration",
+          "placeholder": "e.g. 2.0",
+          "width": 120
+        },
+        {
+          "label": "rotatex",
+          "description": "Tilt formation on the X axis (degrees)",
+          "control": "textinput",
+          "cmd": "rotatex",
+          "placeholder": "e.g. 45",
+          "width": 120
+        },
+        {
+          "label": "rotatey",
+          "description": "Spin formation on the Y axis (degrees)",
+          "control": "textinput",
+          "cmd": "rotatey",
+          "placeholder": "e.g. 45",
+          "width": 120
+        },
+        {
+          "label": "rotatez",
+          "description": "Roll formation on the Z axis (degrees)",
+          "control": "textinput",
+          "cmd": "rotatez",
+          "placeholder": "e.g. 45",
+          "width": 120
+        },
+        {
+          "label": "setformationoffset",
+          "description": "Set a fixed XYZ offset for the formation center",
+          "control": "xyz",
+          "cmd": "setformationoffset"
+        },
+        {
+          "label": "moveformation",
+          "description": "Shift the formation by XYZ relative to its current position",
+          "control": "xyz",
+          "cmd": "moveformation"
+        },
+        {
+          "label": "rotateformation",
+          "description": "Permanently rotate the formation shape by XYZ degrees",
+          "control": "xyz",
+          "cmd": "rotateformation"
+        },
+        {
+          "label": "setrotation",
+          "description": "Override each bot's character rotation to XYZ",
+          "control": "xyz",
+          "cmd": "setrotation"
+        },
+        {
+          "label": "breathing mode",
+          "description": "Pulsing expand/contract animation on the formation",
+          "control": "combobox_direct",
+          "width": 240,
+          "options": [
+            { "label": "Off (toggle off)", "cmd": "breathe" },
+            { "label": "Normal (all bots sync)", "cmd": "breathe1" },
+            { "label": "Alternating (half at a time)", "cmd": "breathe2" },
+            { "label": "Wave (sequential cascade)", "cmd": "breathe3" }
+          ]
+        },
+        {
+          "label": "auto formation",
+          "description": "Bots auto-pick formation based on bot count",
+          "control": "button",
+          "cmd": "auto",
+          "buttonLabel": "Auto Pick"
+        },
+        {
+          "label": "resets",
+          "description": "Clear formation position, rotation, or tetris state",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Reset Offset", "cmd": "resetoffset" },
+            { "label": "Reset Rotation", "cmd": "resetrotation" },
+            { "label": "Reset Form. Rot", "cmd": "resetformationrot" },
+            { "label": "Reset Tetris", "cmd": "resettetris" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement",
+      "commands": [
+        {
+          "label": "follow",
+          "description": "Make bots follow a specific player by username",
+          "control": "textinput",
+          "cmd": "follow",
+          "placeholder": "username",
+          "width": 200
+        },
+        {
+          "label": "followmode",
+          "description": "How bots move relative to the leader",
+          "control": "combobox",
+          "cmd": "followmode",
+          "width": 180,
+          "options": [
+            { "value": "align" }, { "value": "normal" }
+          ]
+        },
+        {
+          "label": "dragreturn",
+          "description": "How bots return to start after finishing a drag race",
+          "control": "combobox",
+          "cmd": "dragreturn",
+          "width": 260,
+          "options": [
+            { "label": "Zombie (loop underground)", "value": "zombie" },
+            { "label": "Instant (teleport to start)", "value": "instant" },
+            { "label": "Fly (float back)", "value": "fly" },
+            { "label": "Underground (tunnel back)", "value": "underground" },
+            { "label": "Teleport (flash to start)", "value": "teleport" },
+            { "label": "Drift Back (slide)", "value": "drift_back" },
+            { "label": "Bounce (spring back)", "value": "bounce" }
+          ]
+        },
+        {
+          "label": "dragspawn",
+          "description": "How bots are positioned at the drag race start line",
+          "control": "combobox",
+          "cmd": "dragspawn",
+          "width": 260,
+          "options": [
+            { "label": "Fixed (spread evenly from center)", "value": "fixed" },
+            { "label": "Random (random X positions)", "value": "random" },
+            { "label": "Lanes (discrete lanes, set with dragspread)", "value": "lanes" }
+          ]
+        },
+        {
+          "label": "dragspread",
+          "description": "Side-by-side spacing between bots at start (used by lanes mode)",
+          "control": "textinput",
+          "cmd": "dragspread",
+          "placeholder": "e.g. 5.0",
+          "width": 120
+        },
+        {
+          "label": "dragwidth",
+          "description": "Track width scale for the drag race course",
+          "control": "textinput",
+          "cmd": "dragwidth",
+          "placeholder": "e.g. 1.2",
+          "width": 120
+        },
+        {
+          "label": "dragreturnspeed",
+          "description": "Speed bots travel when returning to the start line",
+          "control": "textinput",
+          "cmd": "dragreturnspeed",
+          "placeholder": "e.g. 50",
+          "width": 120
+        },
+        {
+          "label": "dragflyheight",
+          "description": "How high bots fly when using the fly return mode",
+          "control": "textinput",
+          "cmd": "dragflyheight",
+          "placeholder": "e.g. 20",
+          "width": 120
+        },
+        {
+          "label": "dragsink",
+          "description": "Depth bots sink underground in the underground return mode",
+          "control": "textinput",
+          "cmd": "dragsink",
+          "placeholder": "e.g. 0.8",
+          "width": 120
+        },
+        {
+          "label": "dragrise",
+          "description": "How high bots surface when exiting underground return",
+          "control": "textinput",
+          "cmd": "dragrise",
+          "placeholder": "e.g. 1.2",
+          "width": 120
+        },
+        {
+          "label": "dragstartdist",
+          "description": "Distance from leader where the race start line is placed",
+          "control": "textinput",
+          "cmd": "dragstartdist",
+          "placeholder": "e.g. 20",
+          "width": 120
+        },
+        {
+          "label": "dragenddist",
+          "description": "Total track length (distance from start to finish line)",
+          "control": "textinput",
+          "cmd": "dragenddist",
+          "placeholder": "e.g. 150",
+          "width": 120
+        },
+        {
+          "label": "dragspeed",
+          "description": "Min/max walk speed range for bots during a drag race",
+          "control": "pair",
+          "cmd": "dragspeed",
+          "placeholder": "min",
+          "placeholder2": "max",
+          "width": 90
+        },
+        {
+          "label": "hold",
+          "description": "Hold bots near a target player for a set duration",
+          "control": "pair",
+          "cmd": "hold",
+          "placeholder": "target",
+          "placeholder2": "duration",
+          "width": 140,
+          "width2": 90,
+          "secondOptional": true
+        },
+        {
+          "label": "cancelhold",
+          "description": "Release bots from a hold (optionally specify target)",
+          "control": "text_optional",
+          "cmd": "cancelhold",
+          "placeholder": "target (optional)",
+          "buttonLabel": "Send",
+          "width": 140
+        },
+        {
+          "label": "dragvisuals",
+          "description": "Show/hide the visual track markers for drag races",
+          "control": "toggle",
+          "cmd": "dragvisuals"
+        },
+        {
+          "label": "drag lines",
+          "description": "Draw lines from each bot to the finish line",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Show Lines", "cmd": "draglines" },
+            { "label": "Hide Lines", "cmd": "hidedraglines" }
+          ]
+        },
+        {
+          "label": "detach / attach",
+          "description": "Detach bots from the leader (freeze in place) or reattach",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Detach", "cmd": "detach" },
+            { "label": "Attach", "cmd": "attach" }
+          ]
+        },
+        {
+          "label": "resets",
+          "description": "Reset race score counters or drag state",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Reset Race", "cmd": "resetrace" },
+            { "label": "Reset Drag", "cmd": "resetdrag" }
+          ]
+        },
+        {
+          "label": "actions",
+          "description": "Teleport bots to leader, or stop all movement",
+          "control": "buttons",
+          "buttons": [
+            { "label": "To Leader", "cmd": "toleader" },
+            { "label": "Stop", "cmd": "stop", "accent": "red" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Camera",
+      "commands": [
+        {
+          "label": "look",
+          "description": "Set where bots' cameras are pointed",
+          "control": "combobox",
+          "cmd": "look",
+          "sep": ":",
+          "width": 200,
+          "options": [
+            { "value": "leader" }, { "value": "outward" },
+            { "value": "inward" }, { "value": "additive" }
+          ]
+        },
+        {
+          "label": "scroll",
+          "description": "Scroll bots' cameras in or out by a number of steps",
+          "control": "scroll",
+          "cmd": "scroll"
+        },
+        {
+          "label": "preview",
+          "description": "Show a ghost preview of a formation without switching to it",
+          "control": "text_show_hide",
+          "cmd": "preview",
+          "placeholder": "formation name...",
+          "width": 180
+        },
+        {
+          "label": "leader rotation",
+          "description": "Whether bots rotate with the leader or stay fixed; toggle switches between modes",
+          "control": "combobox_with_extra",
+          "width": 200,
+          "options": [
+            { "label": "Follow leader rotation", "cmd": "followrotation" },
+            { "label": "Ignore leader rotation", "cmd": "ignorerotation" }
+          ],
+          "extraButtonLabel": "Toggle",
+          "extraCmd": "togglerotation"
+        },
+        {
+          "label": "mouse lock",
+          "description": "Lock bots into first-person mouse lock mode, or unlock",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Lock Mouse", "cmd": "lm" },
+            { "label": "Unlock Mouse", "cmd": "lmo" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Misc",
+      "commands": [
+        {
+          "label": "chat",
+          "description": "Send a chat message from all bots simultaneously",
+          "control": "textinput",
+          "cmd": "chat",
+          "placeholder": "message...",
+          "width": 300
+        },
+        {
+          "label": "chatorder",
+          "description": "Each bot chats a word in sequence to spell out a message",
+          "control": "textinput",
+          "cmd": "chatorder",
+          "placeholder": "sequence...",
+          "width": 300
+        },
+        {
+          "label": "chatorderreverse",
+          "description": "Same as chatorder but bots speak in reverse index order",
+          "control": "textinput",
+          "cmd": "chatorderreverse",
+          "placeholder": "sequence...",
+          "width": 300
+        },
+        {
+          "label": "pressorder",
+          "description": "Each bot presses a key in sequence",
+          "control": "textinput",
+          "cmd": "pressorder",
+          "placeholder": "sequence...",
+          "width": 300
+        },
+        {
+          "label": "press",
+          "description": "Make all bots press a keyboard key (e.g. e, f, space)",
+          "control": "textinput",
+          "cmd": "press",
+          "placeholder": "key name...",
+          "width": 200
+        },
+        {
+          "label": "use",
+          "description": "Activate a hotbar tool by slot number",
+          "control": "textinput",
+          "cmd": "use",
+          "placeholder": "slot number",
+          "width": 120
+        },
+        {
+          "label": "shellgamespeed",
+          "description": "Global speed multiplier for the shell game animation",
+          "control": "textinput",
+          "cmd": "shellgamespeed",
+          "placeholder": "e.g. 2.0",
+          "width": 120
+        },
+        {
+          "label": "spamclick",
+          "description": "Continuously spam left-click at the mouse position",
+          "control": "toggle",
+          "cmd": "spamclick"
+        },
+        {
+          "label": "click",
+          "description": "Perform a single mouse click with the chosen button",
+          "control": "combobox_action",
+          "cmd": "click",
+          "buttonLabel": "Click",
+          "width": 160,
+          "options": [
+            { "label": "Left (default)", "value": "" },
+            { "label": "Right", "value": "right" },
+            { "label": "Middle", "value": "middle" }
+          ]
+        },
+        {
+          "label": "movemouse",
+          "description": "Move bots' cursor to a screen XY position",
+          "control": "pair",
+          "cmd": "movemouse",
+          "placeholder": "X",
+          "placeholder2": "Y",
+          "width": 90
+        },
+        {
+          "label": "shellgame",
+          "description": "Start a shell game with N shuffles at a given speed",
+          "control": "pair_start_stop",
+          "cmd": "shellgame",
+          "stopCmd": "shellgamestop",
+          "placeholder": "count",
+          "placeholder2": "speed",
+          "startLabel": "Start",
+          "stopLabel": "Stop",
+          "width": 90,
+          "secondOptional": true,
+          "valueOptional": true
+        },
+        {
+          "label": "givebot",
+          "description": "Transfer N bots to another user's panel session",
+          "control": "pair",
+          "cmd": "givebot",
+          "placeholder": "username",
+          "placeholder2": "count",
+          "width": 160,
+          "width2": 80
+        },
+        {
+          "label": "changeindex",
+          "description": "Swap positions of two bots by their slot index",
+          "control": "pair",
+          "cmd": "changeindex",
+          "placeholder": "from",
+          "placeholder2": "to",
+          "width": 90
+        },
+        {
+          "label": "hide / unhide",
+          "description": "Make bots invisible or visible to all players",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Hide", "cmd": "hide" },
+            { "label": "Unhide", "cmd": "unhide" }
+          ]
+        },
+        {
+          "label": "utilities",
+          "description": "gc: free memory \u00b7 disable: stop script \u00b7 worm: navigate to leader's path",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Garbage Collect", "cmd": "gc" },
+            { "label": "Disable", "cmd": "disable" },
+            { "label": "Worm", "cmd": "worm" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "commands": [
+        {
+          "label": "makeadmin",
+          "description": "Grant a player admin access to control bots",
+          "control": "textinput",
+          "cmd": "makeadmin",
+          "placeholder": "username",
+          "width": 200
+        },
+        {
+          "label": "removeadmin",
+          "description": "Revoke a player's admin access",
+          "control": "textinput",
+          "cmd": "removeadmin",
+          "placeholder": "username",
+          "width": 200
+        },
+        {
+          "label": "phantomfleet",
+          "description": "Auto-relaunch disconnected bots to keep the count full",
+          "control": "toggle",
+          "cmd": "phantomfleet"
+        },
+        {
+          "label": "quit",
+          "description": "Disconnect and close all bots immediately",
+          "control": "button",
+          "cmd": "quit",
+          "buttonLabel": "Quit All Bots",
+          "accent": "red",
+          "requiresConfirm": true
+        },
+        {
+          "label": "info commands",
+          "description": "Print a list of active items in the bot chat",
+          "control": "buttons",
+          "buttons": [
+            { "label": "Holds", "cmd": "holds" },
+            { "label": "Admins", "cmd": "admins" },
+            { "label": "Formations", "cmd": "formations" },
+            { "label": "Races", "cmd": "races" },
+            { "label": "Ropes", "cmd": "ropes" }
+          ]
+        }
+      ]
+    }
+  ]
+}
