@@ -1,9 +1,16 @@
-[
-  {
-    "id": "ann-001",
-    "type": "info",
-    "title": "Welcome to KutuBCP",
-    "message": "Thanks for using the bot control panel. Announcements and updates will appear here from now on.",
-    "date": "2026-04-11"
-  }
+﻿[
+    {
+        "id":  "ann-001",
+        "type":  "info",
+        "title":  "Welcome to KutuBCP",
+        "message":  "Thanks for using the bot control panel. Announcements and updates will appear here from now on.",
+        "date":  "2026-04-11"
+    },
+    {
+        "id":  "ann-20260412130444",
+        "type":  "warning",
+        "title":  "Copy avatar might not work if your accounts are in a different country.",
+        "message":  "yea just watch out for that",
+        "date":  "2026-04-12"
+    }
 ]
