@@ -5,13 +5,5 @@
         "title":  "Copy avatar might not work if your accounts are in a different country.",
         "message":  "yea just watch out for that",
         "date":  "2026-04-12"
-    },
-    {
-        "id":  "ann-20260412132623",
-        "type":  "info",
-        "title":  "Report the bugs",
-        "message":  "Report all bugs to the owner if you encounter one",
-        "date":  "2026-04-12"
     }
-    
 ]
