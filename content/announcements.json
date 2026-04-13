@@ -19,5 +19,12 @@
         "title":  "Report Bugs To Owner",
         "message":  "You should report all the bugs you encounter to the owner.",
         "date":  "2026-04-13"
+    },
+    {
+        "id":  "ann-20260413212936",
+        "type":  "warning",
+        "title":  "Don\u0027t forget this one",
+        "message":  "Sometimes roblox ratelimits the accounts you use for botting. Preventing you from joining the server. In that case theres nothing you can do but to wait it out until the ratelimit goes away.",
+        "date":  "2026-04-13"
     }
 ]
