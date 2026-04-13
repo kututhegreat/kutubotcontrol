@@ -12,5 +12,12 @@
         "title":  "Copy Avatar Problem",
         "message":  "Copy Avatar feature won\u0027t work if your bot\u0027s account location is in a different country",
         "date":  "2026-04-13"
+    },
+    {
+        "id":  "ann-20260413212353",
+        "type":  "info",
+        "title":  "Report Bugs To Owner",
+        "message":  "You should report all the bugs you encounter to the owner.",
+        "date":  "2026-04-13"
     }
 ]
