@@ -26,5 +26,12 @@
         "title":  "Don\u0027t forget this one",
         "message":  "Sometimes roblox ratelimits the accounts you use for botting. Preventing you from joining the server. In that case theres nothing you can do but to wait it out until the ratelimit goes away.",
         "date":  "2026-04-13"
+    },
+    {
+        "id":  "ann-20260413213723",
+        "type":  "update",
+        "title":  "Added new orbit axes (x,y,z)",
+        "message":  "the commands are orbx orby orbz",
+        "date":  "2026-04-13"
     }
 ]
