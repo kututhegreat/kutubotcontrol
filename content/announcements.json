@@ -1,9 +1,16 @@
-[
+﻿[
     {
         "id":  "ann-20260413211046",
         "type":  "info",
         "title":  "Thanks For Using Kutu\u0027s Bot Control Panel!",
         "message":  "Happy Botting.",
+        "date":  "2026-04-13"
+    },
+    {
+        "id":  "ann-20260413211713",
+        "type":  "warning",
+        "title":  "Copy Avatar Problem",
+        "message":  "Copy Avatar feature won\u0027t work if your bot\u0027s account location is in a different country",
         "date":  "2026-04-13"
     }
 ]
