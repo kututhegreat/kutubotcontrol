@@ -35,13 +35,6 @@
         "date":  "2026-04-13"
     },
     {
-        "id":  "ann-20260413214433",
-        "type":  "warning",
-        "title":  "Bot Watchdog is a bit buggy right now",
-        "message":  "i suggest not using it till i find a fix",
-        "date":  "2026-04-13"
-    },
-    {
         "id":  "ann-20260413215104",
         "type":  "warning",
         "title":  "Note to you that..",
