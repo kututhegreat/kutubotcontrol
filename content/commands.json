@@ -53,18 +53,26 @@
           ]
         },
         {
-          "label": "orbh",
-          "description": "Horizontal orbit speed (spins formation around Y axis)",
+          "label": "orbx",
+          "description": "Orbit speed around X axis (rotates Y and Z — tilts forward/back)",
           "control": "textinput",
-          "cmd": "orbh",
+          "cmd": "orbx",
           "placeholder": "e.g. 1.0",
           "width": 120
         },
         {
-          "label": "orbv",
-          "description": "Vertical orbit speed (rotates formation over Z axis)",
+          "label": "orby",
+          "description": "Orbit speed around Y axis (spins formation horizontally)",
           "control": "textinput",
-          "cmd": "orbv",
+          "cmd": "orby",
+          "placeholder": "e.g. 1.0",
+          "width": 120
+        },
+        {
+          "label": "orbz",
+          "description": "Orbit speed around Z axis (rolls formation side to side)",
+          "control": "textinput",
+          "cmd": "orbz",
           "placeholder": "e.g. 1.0",
           "width": 120
         },
