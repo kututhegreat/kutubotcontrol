@@ -14,13 +14,6 @@
         "date":  "2026-04-13"
     },
     {
-        "id":  "ann-20260413212353",
-        "type":  "info",
-        "title":  "Report Bugs To Owner",
-        "message":  "You should report all the bugs you encounter to the owner.",
-        "date":  "2026-04-13"
-    },
-    {
         "id":  "ann-20260413212936",
         "type":  "warning",
         "title":  "Don\u0027t forget this one",
